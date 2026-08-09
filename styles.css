@@ -214,16 +214,46 @@ input:focus {
 @media (max-width: 600px) {
     body {
         justify-content: flex-start;
-        padding: 48px 16px 32px;
-        gap: 26px;
+        min-height: 100svh;
+        padding:
+            max(40px, env(safe-area-inset-top))
+            max(14px, env(safe-area-inset-right))
+            max(28px, env(safe-area-inset-bottom))
+            max(14px, env(safe-area-inset-left));
+        gap: 24px;
+    }
+
+    body::before {
+        margin-bottom: -14px;
+        font-size: 0.7rem;
+    }
+
+    body::after {
+        margin-bottom: -20px;
+        font-size: 0.88rem;
     }
 
     .container-nums {
-        padding: 22px 16px;
+        gap: 8px;
+        margin-top: 16px;
+        padding: 20px 12px;
+        border-radius: 20px;
+    }
+
+    .container-nums::before {
+        top: -24px;
+        font-size: 0.72rem;
+    }
+
+    .num {
+        width: clamp(46px, 13vw, 56px);
+        border-radius: 14px;
+        font-size: 0.98rem;
     }
 
     .container {
         grid-template-columns: 1fr;
+        gap: 12px;
     }
 
     .operations-container:first-child {
@@ -233,7 +263,64 @@ input:focus {
     }
 
     .operations-container {
-        min-height: 128px;
+        min-height: 120px;
+        padding: 17px;
+        gap: 13px;
+        border-radius: 17px;
+    }
+
+    .operations-container p {
+        font-size: 0.88rem;
+    }
+
+    button,
+    input {
+        min-height: 48px;
+    }
+
+    button {
+        width: 100%;
+        padding-inline: 14px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 360px) {
+    body {
+        padding-inline: 10px;
+    }
+
+    .container-nums {
+        gap: 6px;
+        padding-inline: 9px;
+    }
+
+    .num {
+        width: 44px;
+        border-radius: 12px;
+    }
+
+    .operations-container {
+        padding: 15px;
+    }
+}
+
+@media (max-height: 560px) and (orientation: landscape) {
+    body {
+        justify-content: flex-start;
+        padding-block: 30px;
+    }
+}
+
+@media (hover: none) {
+    .num:hover,
+    .operations-container:hover,
+    button:hover {
+        transform: none;
+    }
+
+    button:active {
+        transform: scale(0.98);
     }
 }
 
