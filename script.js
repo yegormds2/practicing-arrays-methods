@@ -24,7 +24,6 @@ findNumBtn.addEventListener('click', () => {
     }
 })
 
-
 const reduceBtn = document.getElementById('reduce-num-btn')
 
 reduceBtn.addEventListener('click', () => {
@@ -59,15 +58,35 @@ const fillBtn = document.getElementById('fill-array-btn')
 
 fillBtn.addEventListener('click', () => {
     let fillNum = Object.values(allNums).fill('100')
-    console.log(fillNum)
-    
+
     for (let i = 0; i < fillNum.length; i++) {
         Object.values(allNums)[i].textContent = fillNum[i]
     }
 })
 
-const keysBtn = document.getElementById('keys-array-btn')
+const sortBtn = document.getElementById('sort-array-btn')
 
-keysBtn.addEventListener('click', () => {
-    console.log(Object.values(allNums).keys())
+sortBtn.addEventListener('click', () => {
+    let classicValues = []
+    Object.values(allNums).forEach(div => {
+        classicValues.push(Number(div.textContent))
+    })
+    const compare = (a, b) => b - a
+    let reversedSort = classicValues.sort(compare)
+    if (Number(Object.values(allNums)[0].textContent) < Number(Object.values(allNums)[1].textContent)) {
+        for (i = 0; i < reversedSort.length; i++) {
+            Object.values(allNums)[i].textContent = reversedSort[i]
+        }
+    } else if (Number(Object.values(allNums)[0].textContent) > Number(Object.values(allNums)[1].textContent)) {
+        reversedSort.sort()
+        for (i = 0; i < reversedSort.length; i++) {
+            Object.values(allNums)[i].textContent = reversedSort[i]
+        }
+    }
+})
+
+const sortBtn = document.getElementById('filter-array-btn')
+
+sortBtn.addEventListener('click', () => {
+    
 })
