@@ -85,8 +85,3 @@ sortBtn.addEventListener('click', () => {
     }
 })
 
-const sortBtn = document.getElementById('filter-array-btn')
-
-sortBtn.addEventListener('click', () => {
-    
-})
